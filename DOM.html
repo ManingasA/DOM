@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM</title>
+  </head>
+    <link rel="stylesheet" href="DOM.css">
+  <body>
+    <p>Youtube Subscribe Button</p>
+      <button class="youTube" onclick="
+      subd();
+    ">Subscribe</button>
+
+    <p>Rock Paper Scissors</p>
+      <a class="rPS" href="http://127.0.0.1:5500/RockPaperScissors/NewRockPaperScissors.html" target="blank">Click here</a>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under &dollar;40 &equals; &plus; &dollar;10 shipping.</p>
+    <p>Order over &dollar;40 &equals; FREE shipping.</p>
+    <input class="insert" placeholder="Cost of Order"
+    onkeydown="console.log(event.key);
+      enter(event);
+    "> 
+    
+    <button onclick="
+      calculate();
+    ">Calculate</button>
+
+    <p class="total"></p>
+
+    <!--<a href=""><br><br>CSS version of these projects</a>-->
+   
+    <script>
+      /*
+      window.document
+      window.console.log('window');
+      window.alert('hello');
+      */
+      function enter(event) {
+        if (event.key === 'Enter') {
+          calculate();
+        }
+      }
+
+      function calculate() {
+        const inputElem = document.querySelector('.insert');      
+        let cost = Number(inputElem.value);
+
+        if (cost < 40) {
+          cost = cost + 10;
+        }
+        document.querySelector('.total')
+          .innerHTML = `&dollar;${cost}`;                              
+      }
+
+      function subd() {
+        const buttonElem = document.querySelector('.youTube');
+      
+      if (buttonElem.innerHTML === 'Subscribe') {
+        buttonElem.innerHTML = 'Subscribed';
+      } else {
+        buttonElem.innerHTML = 'Subscribe';
+      }
+    }
+
+    </script>
+  </body>
+</html>
